@@ -6,10 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.logging.Logger;
-
-import com.my.main.Main;
 import com.my.main.Note;
 import com.my.main.Song;
 import com.my.mapper.MapperMidiToPhaseShift;

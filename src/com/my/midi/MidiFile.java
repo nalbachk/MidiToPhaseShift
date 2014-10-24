@@ -47,11 +47,6 @@ public class MidiFile {
 			throw e;
 		}
 
-		// create sub directory
-		String subPath = filePath + fileNameNoEnding
-				+ System.getProperty("file.separator");
-		new File(subPath).mkdirs();
-
 		// read midi tracks
 		this.sequence = MidiSystem.getSequence(file);
 		this.tracks = new ArrayList<Track>(Arrays.asList(this.sequence
