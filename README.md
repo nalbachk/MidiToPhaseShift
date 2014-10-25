@@ -31,10 +31,10 @@ HowToUse:
 - 2. create or download a midi
 - 3. copy the downloaded midi file in the "midi" folder
 - 4. rename it in the format:
--- "Artist - Title - 1=GUITAR,2=BASS,3=DRUMS.mid"
--- "Artist - Title - 3=DRUMS.mid"
--- 3=DRUMS means that the third track should be converted to the drums
--- in webtabplayer for example you can see the tracks and count the number
+  - "Artist - Title - 1=GUITAR,2=BASS,3=DRUMS.mid"
+  - "Artist - Title - 3=DRUMS.mid" 
+  - "3=DRUMS" means that the third track should be converted to the drums
+  - in webtabplayer for example you can see the tracks and count the number
 - 5. double click on MidiToPhaseShift.jar
 - 6. now the midi folder contains sub-folders with converted midi.mid files
 - 7. convert your .mp3 to .ogg file
