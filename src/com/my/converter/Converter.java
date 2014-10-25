@@ -1,5 +1,6 @@
 package com.my.converter;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -8,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
+import javax.imageio.ImageIO;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MetaMessage;
 import javax.sound.midi.MidiEvent;
@@ -19,20 +21,19 @@ import javax.sound.midi.Track;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.my.main.Song;
 import com.my.mapper.MapperEofToMidi;
 import com.my.mapper.MapperMidiToPhaseShift;
 import com.my.mapper.MapperPhaseShiftToEof;
 import com.my.mapper.NotesEof;
 import com.my.mapper.NotesPhaseShift;
 import com.my.midi.MidiFile;
-import com.my.midi.MidiHelper;
 import com.my.midi.MidiLogger;
 import com.my.phaseshift.Instruments;
+import com.my.print.Highway;
 
 public class Converter {
 	private static Logger LOG = LogManager.getLogger(Converter.class);
-
-	protected MidiHelper midiHelper = new MidiHelper();
 
 	public void convertFiles() {
 		File directory = new File("midi");
@@ -104,6 +105,9 @@ public class Converter {
 				LOG.info("track with index {} will be modified for {}",
 						trackIndex, instrument);
 				this.modifyTrack(track, instrument);
+
+				// test
+				this.writeImage(midiFile, trackIndex);
 			} else {
 				LOG.info("track with index {} will be removed", trackIndex);
 				tracksToDelete.add(track);
@@ -114,12 +118,35 @@ public class Converter {
 			midiFile.getSequence().deleteTrack(track);
 		}
 	}
+	
+	protected void writeImage(MidiFile midiFile, Integer trackIndex) {
+		String strPath = midiFile.getFilePath();
+		strPath += midiFile.getSongArtist() + " - " + midiFile.getSongTitle()
+				+ System.getProperty("file.separator");
+		File path = new File(strPath);
+		path.mkdirs();
+		
+		Song song = new Song("Dummy", "Dummy", 999, new File(
+				midiFile.getFilePath() + midiFile.getFileName()),
+				trackIndex);
+		Highway highway = new Highway(song);
+		BufferedImage image = highway.generateImage();
+		
+		File output = new File(strPath + trackIndex + ".png");
+		try {
+			ImageIO.write(image, "PNG", output);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	protected void modifyTrack(Track track, Instruments instrument) {
 		MidiLogger.logTrack(track);
 
 		this.modifyTrackName(track, instrument.getTrackName());
 		this.modifyTrackNotes(track, instrument);
+		this.modifyTrackBpm(track, 200); //TODO
 
 		MidiLogger.logTrack(track);
 	}
@@ -190,6 +217,39 @@ public class Converter {
 			}
 		} catch (InvalidMidiDataException e) {
 			LOG.error("cannot modify trackNotes to {}", instrument);
+		}
+	}
+	
+	public void modifyTrackBpm(Track track, int bpm) {		
+		int tempo = (60 * 1000 * 1000) / bpm;
+		byte[] byteTempo = new byte[] {
+				(byte) (tempo / 65536), (byte) (tempo % 65536 / 256), (byte) (tempo % 256) };
+
+		try {
+			boolean trackTempoReplaced = false;
+			for (int index = 0; index < track.size(); index++) {
+				MidiEvent event = track.get(index);
+				MidiMessage midiMessage = event.getMessage();
+	
+				if (midiMessage instanceof MetaMessage) {
+					MetaMessage metaMessage = (MetaMessage) midiMessage;
+	
+					if (0x51 == metaMessage.getType()) {
+						metaMessage.setMessage(0x51, byteTempo, 3);
+						trackTempoReplaced = true;
+						break;
+					}
+				}
+			}
+	
+			if (!trackTempoReplaced) {
+				MetaMessage metaMessage = new MetaMessage();
+				metaMessage.setMessage(0x51, byteTempo, 3);
+				MidiEvent midiEvent = new MidiEvent(metaMessage, 0L);
+				track.add(midiEvent);
+			}
+		} catch (InvalidMidiDataException e) {
+			LOG.error("cannot modify trackBpm to {}", bpm);
 		}
 	}
 }
