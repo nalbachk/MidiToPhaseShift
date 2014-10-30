@@ -1,8 +1,8 @@
 package com.my.config;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -17,6 +17,9 @@ public class ConfigGuitarReal extends Config implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@XmlElement
+	protected Integer tuning = -2;
+
+	@XmlElement
 	protected Map<Integer, NotePhaseShift> mapMidiToPhaseShift = null;
 
 	@XmlElement
@@ -28,6 +31,8 @@ public class ConfigGuitarReal extends Config implements Serializable {
 	}
 
 	public NoteEof getNoteEof(Integer noteMidi) {
+		noteMidi -= tuning;
+
 		NotePhaseShift notePhaseShift = null;
 		if (mapMidiToPhaseShift.containsKey(noteMidi)) {
 			notePhaseShift = mapMidiToPhaseShift.get(noteMidi);
@@ -47,8 +52,39 @@ public class ConfigGuitarReal extends Config implements Serializable {
 		return noteEof;
 	}
 
+	public NotePhaseShift getNotePhaseShift(Integer noteMidi) {
+		noteMidi -= tuning;
+
+		NotePhaseShift notePhaseShift = null;
+		if (mapMidiToPhaseShift.containsKey(noteMidi)) {
+			notePhaseShift = mapMidiToPhaseShift.get(noteMidi);
+		} else {
+			LOG.error("no config found for noteMidi: {}", noteMidi);
+			notePhaseShift = new NotePhaseShift(1, 5);
+		}
+
+		return notePhaseShift;
+	}
+
+	public NoteEof getNoteEof(NotePhaseShift notePhaseShift) {
+		NoteEof noteEof = null;
+		if (mapPhaseShiftToEof.containsKey(notePhaseShift)) {
+			noteEof = mapPhaseShiftToEof.get(notePhaseShift);
+		} else {
+			LOG.error("no config found for notePhaseShift: {}", notePhaseShift);
+			noteEof = new NoteEof(1, 5);
+		}
+
+		return noteEof;
+	}
+
+	public Integer getNoteMidi(NotePhaseShift notePhaseShift) {
+		Integer noteMidi = 35 + notePhaseShift.getLineNr() * 5 + notePhaseShift.getFret();
+		return noteMidi;
+	}
+
 	private void initMapMidiToPhaseShift() {
-		mapMidiToPhaseShift = new HashMap<Integer, NotePhaseShift>();
+		mapMidiToPhaseShift = new TreeMap<Integer, NotePhaseShift>();
 
 		mapMidiToPhaseShift.put(40, new NotePhaseShift(1, 0));
 		mapMidiToPhaseShift.put(41, new NotePhaseShift(1, 1));
@@ -110,7 +146,7 @@ public class ConfigGuitarReal extends Config implements Serializable {
 	}
 
 	private void initMapPhaseShiftToEof() {
-		mapPhaseShiftToEof = new HashMap<NotePhaseShift, NoteEof>();
+		mapPhaseShiftToEof = new TreeMap<NotePhaseShift, NoteEof>();
 
 		for (int lineNr = 1; lineNr < 7; lineNr++) {
 			for (int fret = 0; fret < 23; fret++) {

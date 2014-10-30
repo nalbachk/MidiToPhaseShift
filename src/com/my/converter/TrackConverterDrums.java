@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 import com.my.config.Config;
 import com.my.config.ConfigDrums;
 import com.my.config.NoteEof;
+import com.my.midi.TabTrack;
 
 public class TrackConverterDrums extends TrackConverter {
 
@@ -59,10 +60,10 @@ public class TrackConverterDrums extends TrackConverter {
 	}
 
 	@Override
-	protected void modifyTrackNotes(Track track) {
+	protected void modifyTrackNotes(Track midiTrack, TabTrack tabTrack) {
 		try {
-			for (int index = 0; index < track.size(); index++) {
-				MidiEvent midiEvent = track.get(index);
+			for (int index = 0; index < midiTrack.size(); index++) {
+				MidiEvent midiEvent = midiTrack.get(index);
 				MidiMessage midiMessage = midiEvent.getMessage();
 
 				if (midiMessage instanceof ShortMessage) {

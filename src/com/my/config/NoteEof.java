@@ -2,7 +2,7 @@ package com.my.config;
 
 import java.io.Serializable;
 
-public class NoteEof implements Serializable {
+public class NoteEof implements Serializable, Comparable<NoteEof> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -132,5 +132,21 @@ public class NoteEof implements Serializable {
 		} else if (!lineNr.equals(other.lineNr))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(NoteEof other) {
+		int result = 0;
+
+		result = this.getLineNr().compareTo(other.getLineNr());
+		if (0 != result) {
+			return result;
+		}
+		result = this.getFret().compareTo(other.getFret());
+		if (0 != result) {
+			return result;
+		}
+
+		return result;
 	}
 }
