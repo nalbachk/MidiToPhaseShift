@@ -1,7 +1,5 @@
 package com.my.midi;
 
-import java.nio.charset.Charset;
-
 import javax.sound.midi.MetaMessage;
 import javax.sound.midi.MidiEvent;
 import javax.sound.midi.MidiMessage;
@@ -66,8 +64,20 @@ public class MidiLogger {
 		return str;
 	}
 
+	private static String toString(byte[] message) {
+		String str = "";
+		for (byte b : message) {
+			str += (int) b + ";";
+		}
+		//return new String(message, Charset.forName("ASCII"));
+		return str;
+	}
+
 	private static String toString(ShortMessage message) {
 		String str = "";
+
+		// type 81 = setTempo
+		// type 88 = Time signature
 
 		String commandName = String.valueOf(message.getCommand());
 		switch (message.getCommand()) {
@@ -83,12 +93,15 @@ public class MidiLogger {
 			case ShortMessage.PITCH_BEND:
 				commandName = "PITCH_BEND";
 				break;
+			case ShortMessage.PROGRAM_CHANGE:
+				commandName = "PROGRAM_CHANGE";
+				break;
 		}
 
 		str += "ShortMessage[";
 		str += "status=" + message.getStatus();
 		str += ", length=" + message.getLength();
-		str += ", message=" + new String(message.getMessage(), Charset.forName("ASCII"));
+		str += ", message=" + toString(message.getMessage());
 		str += ", data1=" + message.getData1();
 		str += ", data2=" + message.getData2();
 		str += ", commandName=" + commandName;
@@ -103,8 +116,8 @@ public class MidiLogger {
 		str += "MetaMessage[";
 		str += "status=" + message.getStatus();
 		str += ", length=" + message.getLength();
-		str += ", message=" + new String(message.getMessage(), Charset.forName("ASCII"));
-		str += ", data=" + new String(message.getData(), Charset.forName("ASCII"));
+		str += ", message=" + toString(message.getMessage());
+		str += ", data=" + toString(message.getData());
 		str += ", type=" + message.getType();
 		str += "]";
 
@@ -117,8 +130,8 @@ public class MidiLogger {
 		str += "SysexMessage[";
 		str += "status=" + message.getStatus();
 		str += ", length=" + message.getLength();
-		str += ", message=" + new String(message.getMessage(), Charset.forName("ASCII"));
-		str += ", data=" + new String(message.getData(), Charset.forName("ASCII"));
+		str += ", message=" + toString(message.getMessage());
+		str += ", data=" + toString(message.getData());
 		str += "]";
 
 		return str;
@@ -130,7 +143,7 @@ public class MidiLogger {
 		str += "MidiMessage[";
 		str += "status=" + message.getStatus();
 		str += ", length=" + message.getLength();
-		str += ", message=" + new String(message.getMessage(), Charset.forName("ASCII"));
+		str += ", message=" + toString(message.getMessage());
 		str += "]";
 
 		return str;

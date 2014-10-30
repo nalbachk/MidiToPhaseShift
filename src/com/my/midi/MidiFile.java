@@ -16,11 +16,10 @@ import javax.sound.midi.Track;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.my.converter.Converter;
 import com.my.phaseshift.Instruments;
 
 public class MidiFile {
-	private static Logger LOG = LogManager.getLogger(Converter.class);
+	private static Logger LOG = LogManager.getLogger(MidiFile.class);
 
 	protected String filePath = null;
 	protected String fileName = null;
@@ -34,23 +33,20 @@ public class MidiFile {
 	protected List<Track> tracks = null;
 
 	public MidiFile(File file) throws InvalidMidiDataException, IOException {
-		this.filePath = file.getParentFile().getAbsolutePath()
-				+ System.getProperty("file.separator");
+		this.filePath = file.getParentFile().getAbsolutePath() + File.separatorChar;
 		this.fileName = file.getName();
 		this.fileNameNoEnding = this.fileName.split(".mid")[0];
 		try {
 			this.readInfoFromFileName(this.fileNameNoEnding);
 		} catch (IllegalArgumentException e) {
 			String fileNameExample = "Artist - SongName - 1=GUITAR,2=BASS,3=DRUMS.mid";
-			LOG.error("invalid midiFileName '{}' (example: '{}')",
-					this.fileName, fileNameExample);
+			LOG.error("invalid midiFileName '{}' (example: '{}')", this.fileName, fileNameExample);
 			throw e;
 		}
 
 		// read midi tracks
 		this.sequence = MidiSystem.getSequence(file);
-		this.tracks = new ArrayList<Track>(Arrays.asList(this.sequence
-				.getTracks()));
+		this.tracks = new ArrayList<Track>(Arrays.asList(this.sequence.getTracks()));
 
 		LOG.info("{} tracks found in '{}'", tracks.size(), fileName);
 	}

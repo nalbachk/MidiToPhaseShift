@@ -2,7 +2,7 @@ package com.my.config;
 
 import java.io.Serializable;
 
-public class NotePhaseShift implements Serializable {
+public class NotePhaseShift implements Serializable, Comparable<NotePhaseShift> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -107,5 +107,21 @@ public class NotePhaseShift implements Serializable {
 		} else if (!closed.equals(other.closed))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(NotePhaseShift other) {
+		int result = 0;
+
+		result = this.getLineNr().compareTo(other.getLineNr());
+		if (0 != result) {
+			return result;
+		}
+		result = this.getFret().compareTo(other.getFret());
+		if (0 != result) {
+			return result;
+		}
+
+		return result;
 	}
 }

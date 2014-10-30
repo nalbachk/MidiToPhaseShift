@@ -20,11 +20,15 @@ import org.apache.logging.log4j.Logger;
 import com.my.main.Song;
 import com.my.midi.MidiFile;
 import com.my.midi.MidiLogger;
+import com.my.midi.TabFile;
+import com.my.midi.TabTrack;
 import com.my.phaseshift.Instruments;
 import com.my.print.Highway;
 
 public class MidiConverter {
 	private static Logger LOG = LogManager.getLogger(MidiConverter.class);
+
+	protected Track trackMeta = null;
 
 	public void convertFiles() {
 		File directory = new File("midi");
@@ -51,14 +55,22 @@ public class MidiConverter {
 		return files;
 	}
 
-	protected void convertFile(File file) {
-		LOG.info("convert midiFile {}", file.getAbsolutePath());
+	protected void convertFile(File fileMidi) {
+		LOG.info("convert midiFile {}", fileMidi.getAbsolutePath());
 		try {
-			MidiFile midiFile = new MidiFile(file);
-			this.modifyMidi(midiFile);
+			MidiFile midiFile = new MidiFile(fileMidi);
+
+			// check if additional tabFile exists
+			TabFile tabFile = null;
+			File fileTab = new File(midiFile.getFilePath() + midiFile.getSongArtist() + " - " + midiFile.getSongTitle() + ".txt");
+			if (fileTab.exists()) {
+				tabFile = new TabFile(fileTab);
+			}
+
+			this.modifyMidi(midiFile, tabFile);
 			this.writeMidiNew(midiFile);
 		} catch (InvalidMidiDataException | IOException e) {
-			LOG.error("cannot read midiFile '{}'", file.getAbsolutePath(), e);
+			LOG.error("cannot read midiFile '{}'", fileMidi.getAbsolutePath(), e);
 		}
 	}
 
@@ -80,23 +92,37 @@ public class MidiConverter {
 		}
 	}
 
-	protected void modifyMidi(MidiFile midiFile) {
+	protected void modifyMidi(MidiFile midiFile, TabFile tabFile) {
 		Set<Integer> trackIndices = midiFile.getInstruments().keySet();
 
 		// modify tracks
 		List<Track> tracksToDelete = new ArrayList<Track>();
+
 		for (int trackIndex = 0; trackIndex < midiFile.getTracks().size(); trackIndex++) {
-			Track track = midiFile.getSequence().getTracks()[trackIndex];
+			Track midiTrack = midiFile.getSequence().getTracks()[trackIndex];
+			if (trackIndex == 0) {
+				continue;
+				//trackMeta = midiTrack;
+				//MidiLogger.logTrack(midiTrack);
+			}
+
 			if (trackIndices.contains(trackIndex)) {
 				Instruments instrument = midiFile.getInstruments().get(trackIndex);
+				TabTrack tabTrack = null;
+				if (null != tabFile) {
+					if (tabFile.getTracks().size() >= trackIndex) {
+						tabTrack = tabFile.getTracks().get(trackIndex - 1);
+					}
+				}
+
 				LOG.info("track with index {} will be modified for {}", trackIndex, instrument);
-				this.modifyTrack(track, instrument);
+				this.modifyTrack(instrument, midiTrack, tabTrack);
 
 				// test
 				this.writeImage(midiFile, trackIndex);
 			} else {
 				LOG.info("track with index {} will be removed", trackIndex);
-				tracksToDelete.add(track);
+				tracksToDelete.add(midiTrack);
 			}
 		}
 
@@ -123,8 +149,8 @@ public class MidiConverter {
 		}
 	}
 
-	protected void modifyTrack(Track track, Instruments instrument) {
-		MidiLogger.logTrack(track);
+	protected void modifyTrack(Instruments instrument, Track midiTrack, TabTrack tabTrack) {
+		MidiLogger.logTrack(midiTrack);
 
 		TrackConverter trackConverter = null;
 
@@ -139,8 +165,8 @@ public class MidiConverter {
 				break;
 		}
 
-		trackConverter.convert(track);
+		trackConverter.convert(trackMeta, midiTrack, tabTrack);
 
-		MidiLogger.logTrack(track);
+		MidiLogger.logTrack(midiTrack);
 	}
 }
