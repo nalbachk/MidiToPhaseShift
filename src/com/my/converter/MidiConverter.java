@@ -101,9 +101,10 @@ public class MidiConverter {
 		for (int trackIndex = 0; trackIndex < midiFile.getTracks().size(); trackIndex++) {
 			Track midiTrack = midiFile.getSequence().getTracks()[trackIndex];
 			if (trackIndex == 0) {
+				LOG.info("track with index {} is metaTrack and should stay", trackIndex);
+				MidiLogger.logTrack("metaTrack", midiTrack);
 				continue;
 				//trackMeta = midiTrack;
-				//MidiLogger.logTrack(midiTrack);
 			}
 
 			if (trackIndices.contains(trackIndex)) {
@@ -150,7 +151,7 @@ public class MidiConverter {
 	}
 
 	protected void modifyTrack(Instruments instrument, Track midiTrack, TabTrack tabTrack) {
-		MidiLogger.logTrack(midiTrack);
+		MidiLogger.logTrack("before", midiTrack);
 
 		TrackConverter trackConverter = null;
 
@@ -167,6 +168,6 @@ public class MidiConverter {
 
 		trackConverter.convert(trackMeta, midiTrack, tabTrack);
 
-		MidiLogger.logTrack(midiTrack);
+		MidiLogger.logTrack("after", midiTrack);
 	}
 }

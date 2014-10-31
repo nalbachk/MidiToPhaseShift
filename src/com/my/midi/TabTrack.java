@@ -27,14 +27,19 @@ public class TabTrack {
 		trackContent = trackContent.substring(0, pos);
 
 		List<String> trackRows = Arrays.asList(trackContent.split(System.lineSeparator() + System.lineSeparator()));
-		LOG.debug("{} trackRows found", trackRows.size());
+		LOG.trace("{} trackRows found in track", trackRows.size());
 
 		positions = new LinkedList<TabPosition>();
 		for (String trackRow : trackRows) {
 			List<List<Integer>> notesByTrackRow = this.readNotesByTrackRow(trackRow);
 			positions.addAll(this.convertToPositions(notesByTrackRow));
 		}
-		LOG.debug("{} positions found", positions.size());
+		LOG.info("{} positions found in track", positions.size());
+
+		// log
+		for (int i = 0; i < positions.size(); i++) {
+			LOG.trace("{}: {}", i, positions.get(i));
+		}
 	}
 
 	protected List<List<Integer>> readNotesByTrackRow(String trackRow) {
@@ -53,8 +58,12 @@ public class TabTrack {
 		for (int i = 0; i < linesTmp.size(); i++) { // DESC because later top-line has lineNr=6 and bottom-line has lineNr=1
 			lines.add(new StringBuilder(linesTmp.get(linesTmp.size() - 1 - i))); // convert
 		}
-		LOG.trace("{} lines found", lines.size());
 
+		if (0 == this.linesCount) {
+			LOG.info("{} lines found in track", lines.size());
+		} else if (this.linesCount != lines.size()) {
+			LOG.error("different linesCount in the same track: before={} after={}", this.linesCount, lines.size());
+		}
 		this.linesCount = lines.size();
 
 		// replace "-" that stands for no note (because "-" is delimiter too)
@@ -106,7 +115,7 @@ public class TabTrack {
 
 		// split by "-" symbol
 		List<String> strNotes = Arrays.asList(line.split("\\x2D"));
-		LOG.trace("{} strNotes found", strNotes.size());
+		LOG.trace("{} strNotes found in line", strNotes.size());
 
 		List<Integer> notes = new ArrayList<Integer>(strNotes.size());
 		for (String strNote : strNotes) {
@@ -119,7 +128,7 @@ public class TabTrack {
 				notes.add(note);
 			}
 		}
-		LOG.trace("{} notes found", notes.size());
+		LOG.trace("{} notes found found in line", notes.size());
 		LOG.trace(notes);
 
 		return notes;

@@ -4,6 +4,18 @@
 		<Console name="CONSOLE" target="SYSTEM_OUT">
 			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
 		</Console>
+		<File name="infoFile" fileName="logs/infofile.log" append="false">
+        	<PatternLayout pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    	</File>
+    	<File name="debugFile" fileName="logs/debugfile.log" append="false">
+        	<PatternLayout pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    	</File>
+		<File name="MidiFile" fileName="logs/midifile.log" append="false">
+        	<PatternLayout pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    	</File>
+    	<File name="TabFile" fileName="logs/tabfile.log" append="false">
+        	<PatternLayout pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    	</File>
 	</Appenders>
 	<Loggers>
 		<Root level="error">
@@ -11,7 +23,15 @@
 		</Root>
 		<logger name="javabeat.net.util" level="TRACE" />
 		<Root level="DEBUG">
-			<AppenderRef ref="CONSOLE"/>
+			<AppenderRef ref="CONSOLE" level="DEBUG"/>
+			<appenderRef ref="infoFile" level="INFO"/>
+			<appenderRef ref="debugFile" level="DEBUG"/>
 		</Root>
+		<logger name="com.my.midi.MidiLogger" level="TRACE">
+		    <appender-ref ref="MidiFile" level="TRACE"/>
+		</logger>
+		<logger name="com.my.midi.TabTrack" level="TRACE">
+		    <appender-ref ref="TabFile" level="TRACE"/>
+		</logger>
 	</Loggers>
 </Configuration>

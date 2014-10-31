@@ -57,6 +57,7 @@ public abstract class TrackConverter {
 
 	protected abstract void modifyTrackNotes(Track midiTrack, TabTrack tabTrack);
 
+	// not necessary
 	public void modifyTrackBpm(Track trackMeta, Track track) {
 		for (int index = 0; index < trackMeta.size(); index++) {
 			MidiEvent midiEvent = trackMeta.get(index);
@@ -73,7 +74,7 @@ public abstract class TrackConverter {
 		}
 	}
 
-	public void modifyTrackBpmold(Track trackMeta, Track track) {
+	public void remove___modifyTrackBpmold(Track trackMeta, Track track) {
 		int bpm = 200;
 		int tempo = (60 * 1000 * 1000) / bpm;
 		byte[] byteTempo = new byte[] {

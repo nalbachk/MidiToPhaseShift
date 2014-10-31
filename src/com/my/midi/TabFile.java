@@ -27,21 +27,21 @@ public class TabFile {
 
 		// read tab tracks
 		this.tracks = readTracks(file);
-
-		LOG.info("{} tracks found in '{}'", tracks.size(), fileName);
 	}
 
 	protected List<TabTrack> readTracks(File file) {
 		List<TabTrack> tracks = new ArrayList<TabTrack>();
 
 		String fileContent = this.readFileContent(file);
-		List<String> trackContents = Arrays.asList(fileContent.split("\nTrack"));
+		List<String> trackContents = Arrays.asList(fileContent.split(System.lineSeparator() + "Track"));
+		LOG.info("{} possible tracks found in '{}'", trackContents.size(), file.getAbsoluteFile());
 
 		// first contains no track
 		for (int index = 1; index < trackContents.size(); index++) {
 			TabTrack track = new TabTrack(trackContents.get(index));
 			tracks.add(track);
 		}
+		LOG.info("{} tracks found in '{}'", tracks.size(), file.getAbsolutePath());
 
 		return tracks;
 	}

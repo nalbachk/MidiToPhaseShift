@@ -16,8 +16,9 @@ import org.apache.logging.log4j.Logger;
 public class MidiLogger {
 	private static Logger LOG = LogManager.getLogger(MidiLogger.class);
 
-	public static void logTrack(Track track) {
+	public static void logTrack(String message, Track track) {
 		LOG.trace("---------");
+		LOG.trace(message);
 		LOG.trace(toString(track));
 		LOG.trace("---------");
 	}
