@@ -17,6 +17,12 @@ import javax.sound.midi.Track;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.my.config.Config;
+import com.my.config.ConfigBassReal4;
+import com.my.config.ConfigBassReal5;
+import com.my.config.ConfigBassReal6;
+import com.my.config.ConfigGuitarReal6;
+import com.my.config.ConfigStrings;
 import com.my.main.Song;
 import com.my.midi.MidiFile;
 import com.my.midi.MidiLogger;
@@ -153,14 +159,24 @@ public class MidiConverter {
 	protected void modifyTrack(Instruments instrument, Track midiTrack, TabTrack tabTrack) {
 		MidiLogger.logTrack("before", midiTrack);
 
+		ConfigStrings configStrings = null;
 		TrackConverter trackConverter = null;
 
 		switch (instrument) {
+			case GUITAR_REAL_6:
+				configStrings = Config.readFromFile(ConfigGuitarReal6.class);
+				trackConverter = new TrackConverterGuitarReal(configStrings);
+				break;
+			case BASS_REAL_4:
+				configStrings = Config.readFromFile(ConfigBassReal4.class);
+			case BASS_REAL_5:
+				configStrings = Config.readFromFile(ConfigBassReal5.class);
+			case BASS_REAL_6:
+				configStrings = Config.readFromFile(ConfigBassReal6.class);
+				trackConverter = new TrackConverterBassReal(configStrings);
+				break;
 			case DRUMS:
 				trackConverter = new TrackConverterDrums();
-				break;
-			case GUITAR_REAL:
-				trackConverter = new TrackConverterGuitarReal();
 				break;
 			default:
 				break;

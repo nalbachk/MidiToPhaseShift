@@ -15,16 +15,18 @@ public enum Instruments {
 	DRUMS_REAL("PART REAL_DRUMS_PS"), //
 	GUITAR("PART GUITAR"), //
 	GUITAR_ADVANCED("PART GUITAR"), //
-	GUITAR_REAL("PART GUITAR"), //
+	GUITAR_REAL_6("PART GUITAR"), //
 	BASS("PART BASS"), //
 	BASS_ADVANCED("PART BASS"), //
-	BASS_REAL("PART BASS"), //
+	BASS_REAL_4("PART BASS"), //
+	BASS_REAL_5("PART BASS"), //
+	BASS_REAL_6("PART BASS"), //
 	KEYS("PART KEYS"), //
 	KEYS_ADVANCED("PART KEYS"), //
 	KEYS_REAL("PART KEYS");
-	
+
 	String trackName = null;
-	
+
 	private Instruments(String trackName) {
 		this.trackName = trackName;
 	}
