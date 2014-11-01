@@ -9,8 +9,8 @@ import javax.sound.midi.Track;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.my.config.Config;
 import com.my.config.ConfigDrums;
+import com.my.config.ConfigFile;
 import com.my.config.NoteEof;
 import com.my.midi.TabTrack;
 
@@ -21,7 +21,7 @@ public class TrackConverterDrums extends TrackConverter {
 	protected ConfigDrums configDrums;
 
 	public TrackConverterDrums() {
-		this.configDrums = Config.readFromFile(ConfigDrums.class);
+		this.configDrums = ConfigFile.read(ConfigDrums.class);
 	}
 
 	@Override

@@ -1,47 +1,92 @@
 package com.my.config;
 
-import java.io.File;
+import java.util.Map;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class Config {
 	private static Logger LOG = LogManager.getLogger(Config.class);
 
-	protected File getFile() {
-		String fileName = getClass().getSimpleName() + ".xml";
-		File file = new File(fileName);
-		return file;
+	@XmlElement
+	private Double bpmMultiplier = 0.92D;
+
+	@XmlElement
+	private Integer tuning = 0;
+
+	@XmlElement
+	protected Map<Integer, NotePhaseShift> mapMidiToPhaseShift = null;
+
+	@XmlElement
+	protected Map<NotePhaseShift, NoteEof> mapPhaseShiftToEof = null;
+
+	public Config() {
+		this.initMapMidiToPhaseShift();
+		this.initMapPhaseShiftToEof();
 	}
 
-	public void writeToFile() {
-		try {
-			JAXBContext jaxb = JAXBContext.newInstance(this.getClass());
-			Marshaller marshaller = jaxb.createMarshaller();
-			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			marshaller.marshal(this, this.getFile());
-		} catch (JAXBException e) {
-			LOG.error("cannot write config {}", getFile().getAbsolutePath(), e);
-		}
+	abstract protected void initMapMidiToPhaseShift();
+
+	abstract protected void initMapPhaseShiftToEof();
+
+	public NoteEof getNoteEof(Integer noteMidi) {
+		NotePhaseShift notePhaseShift = this.getNotePhaseShift(noteMidi);
+		NoteEof noteEof = this.getNoteEof(notePhaseShift);
+		return noteEof;
 	}
 
-	@SuppressWarnings("unchecked")
-	public static <T> T readFromFile(Class<? extends Config> clazz) {
-		T t = null;
-		String fileName = clazz.getSimpleName() + ".xml";
-		File file = new File(fileName);
-		try {
-			JAXBContext jaxb = JAXBContext.newInstance(clazz);
-			Unmarshaller unmarshaller = jaxb.createUnmarshaller();
-			t = (T) unmarshaller.unmarshal(file);
-		} catch (Exception e) {
-			LOG.error("cannot read config {}", file.getAbsolutePath(), e);
+	public NotePhaseShift getNotePhaseShift(Integer noteMidi) {
+		noteMidi -= this.getTuning();
+
+		NotePhaseShift notePhaseShift = null;
+		if (mapMidiToPhaseShift.containsKey(noteMidi)) {
+			notePhaseShift = mapMidiToPhaseShift.get(noteMidi);
+		} else {
+			LOG.error("no config found for noteMidi: {}", noteMidi);
+			notePhaseShift = this.getNotePhaseShiftDefault();
 		}
-		return t;
+
+		return notePhaseShift;
+	}
+
+	protected NotePhaseShift getNotePhaseShiftDefault() {
+		return new NotePhaseShift(1, 5);
+	}
+
+	public NoteEof getNoteEof(NotePhaseShift notePhaseShift) {
+		NoteEof noteEof = null;
+		if (mapPhaseShiftToEof.containsKey(notePhaseShift)) {
+			noteEof = mapPhaseShiftToEof.get(notePhaseShift);
+		} else {
+			LOG.error("no config found for notePhaseShift: {}", notePhaseShift);
+			noteEof = this.getNoteEofDefault();
+		}
+
+		return noteEof;
+	}
+
+	protected NoteEof getNoteEofDefault() {
+		return new NoteEof(1, 5);
+	}
+
+	public Double getBpmMultiplier() {
+		return bpmMultiplier;
+	}
+
+	public void setBpmMultiplier(Double bpmMultiplier) {
+		this.bpmMultiplier = bpmMultiplier;
+	}
+
+	public Integer getTuning() {
+		return tuning;
+	}
+
+	public void setTuning(Integer tuning) {
+		this.tuning = tuning;
 	}
 }

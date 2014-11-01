@@ -2,9 +2,7 @@ package com.my.config;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Map;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.logging.log4j.LogManager;
@@ -16,38 +14,22 @@ public class ConfigDrums extends Config implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@XmlElement
-	protected Map<Integer, NotePhaseShift> mapMidiToPhaseShift = null;
-
-	@XmlElement
-	protected Map<NotePhaseShift, NoteEof> mapPhaseShiftToEof = null;
-
 	public ConfigDrums() {
-		this.initMapMidiToPhaseShift();
-		this.initMapPhaseShiftToEof();
+		// nothing
 	}
 
-	public NoteEof getNoteEof(Integer noteMidi) {
-		NotePhaseShift notePhaseShift = null;
-		if (mapMidiToPhaseShift.containsKey(noteMidi)) {
-			notePhaseShift = mapMidiToPhaseShift.get(noteMidi);
-		} else {
-			LOG.error("no config found for noteMidi: {}", noteMidi);
-			notePhaseShift = new NotePhaseShift(0); // bass
-		}
-
-		NoteEof noteEof = null;
-		if (mapPhaseShiftToEof.containsKey(notePhaseShift)) {
-			noteEof = mapPhaseShiftToEof.get(notePhaseShift);
-		} else {
-			LOG.error("no config found for notePhaseShift: {}", notePhaseShift);
-			noteEof = new NoteEof(1, false); // green
-		}
-
-		return noteEof;
+	@Override
+	protected NotePhaseShift getNotePhaseShiftDefault() {
+		return new NotePhaseShift(0); // bass
 	}
 
-	private void initMapMidiToPhaseShift() {
+	@Override
+	protected NoteEof getNoteEofDefault() {
+		return new NoteEof(1, false); // green
+	}
+
+	@Override
+	protected void initMapMidiToPhaseShift() {
 		mapMidiToPhaseShift = new HashMap<Integer, NotePhaseShift>();
 
 		mapMidiToPhaseShift.put(26, new NotePhaseShift(0)); // bass
@@ -81,9 +63,12 @@ public class ConfigDrums extends Config implements Serializable {
 
 		mapMidiToPhaseShift.put(41, new NotePhaseShift(7)); // tom 3
 		mapMidiToPhaseShift.put(43, new NotePhaseShift(7)); // tom 3
+
+		LOG.info("mapMidiToPhaseShift initialized");
 	}
 
-	private void initMapPhaseShiftToEof() {
+	@Override
+	protected void initMapPhaseShiftToEof() {
 		mapPhaseShiftToEof = new HashMap<NotePhaseShift, NoteEof>();
 
 		mapPhaseShiftToEof.put(new NotePhaseShift(0), new NoteEof(1, false)); // bass > green
@@ -95,5 +80,7 @@ public class ConfigDrums extends Config implements Serializable {
 		mapPhaseShiftToEof.put(new NotePhaseShift(6), new NoteEof(5, true)); // cymbal 2 > pink cymbal
 		mapPhaseShiftToEof.put(new NotePhaseShift(7), new NoteEof(5, false)); // tom 3 > pink
 		//mapPhaseShiftToEof.put(new NotePhaseShift(7), new NoteEof(6)); // ? > orange
+
+		LOG.info("mapPhaseShiftToEof initialized");
 	}
 }
