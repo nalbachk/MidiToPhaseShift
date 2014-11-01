@@ -9,22 +9,24 @@ Tool to create custom songs for PhaseShift:
 - 3. bpm fine tuning and finished
 
 Todos:
-- read note mapping from files
-- guitar and bass support (DRUMS should work)
+- bass support
 - bpm support
 
 PhaseShift:
-- http://www.dwsk.co.uk/index_phase_shift.html
+- http://www.google.de/webhp?q=dwsk+phase+shift
 
 EOF (Song Editor for PhaseShift):
-- http://dwsk.proboards.com/thread/672
+- http://www.google.de/webhp?q=dwsk+phase+shift+eof+song+editor
 
 Midi Files:
-- http://webtabplayer.com/Tab/44990/equilibrium-tabs/met-tab
-- http://www.songsterr.com/a/wa/search?pattern=ensiferum
+- http://www.google.de/webhp?q=webtabplayer.com+equilibrium+met
+- http://www.google.de/webhp?q=songsterr.com+equilibrium+met
 
 Ogg Converter:
-- http://audio.online-convert.com/convert-to-ogg
+- http://www.google.de/webhp?q=online-convert+ogg
+
+Features:
+- todo
 
 HowToUse:
 - 1. download "MidiToPhaseShift.jar" and "midi" folder
