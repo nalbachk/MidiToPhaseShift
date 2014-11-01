@@ -17,10 +17,10 @@ import javax.sound.midi.Track;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.my.config.Config;
 import com.my.config.ConfigBassReal4;
 import com.my.config.ConfigBassReal5;
 import com.my.config.ConfigBassReal6;
+import com.my.config.ConfigFile;
 import com.my.config.ConfigGuitarReal6;
 import com.my.config.ConfigStrings;
 import com.my.main.Song;
@@ -164,15 +164,19 @@ public class MidiConverter {
 
 		switch (instrument) {
 			case GUITAR_REAL_6:
-				configStrings = Config.readFromFile(ConfigGuitarReal6.class);
+				configStrings = ConfigFile.read(ConfigGuitarReal6.class);
 				trackConverter = new TrackConverterGuitarReal(configStrings);
 				break;
 			case BASS_REAL_4:
-				configStrings = Config.readFromFile(ConfigBassReal4.class);
+				configStrings = ConfigFile.read(ConfigBassReal4.class);
+				trackConverter = new TrackConverterBassReal(configStrings);
+				break;
 			case BASS_REAL_5:
-				configStrings = Config.readFromFile(ConfigBassReal5.class);
+				configStrings = ConfigFile.read(ConfigBassReal5.class);
+				trackConverter = new TrackConverterBassReal(configStrings);
+				break;
 			case BASS_REAL_6:
-				configStrings = Config.readFromFile(ConfigBassReal6.class);
+				configStrings = ConfigFile.read(ConfigBassReal6.class);
 				trackConverter = new TrackConverterBassReal(configStrings);
 				break;
 			case DRUMS:

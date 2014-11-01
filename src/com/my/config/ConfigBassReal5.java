@@ -18,6 +18,7 @@ public class ConfigBassReal5 extends ConfigStrings implements Serializable {
 		// nothing
 	}
 
+	@Override
 	protected Integer getStringsCount() {
 		return 5;
 	}

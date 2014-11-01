@@ -1,10 +1,10 @@
 package com.my.main;
 
-import com.my.config.Config;
 import com.my.config.ConfigBassReal4;
 import com.my.config.ConfigBassReal5;
 import com.my.config.ConfigBassReal6;
 import com.my.config.ConfigDrums;
+import com.my.config.ConfigFile;
 import com.my.config.ConfigGuitarReal6;
 import com.my.converter.MidiConverter;
 
@@ -18,34 +18,34 @@ public class Main {
 	}
 
 	private static void createConfigs() {
-		ConfigGuitarReal6 configGuitarReal6 = Config.readFromFile(ConfigGuitarReal6.class);
+		ConfigGuitarReal6 configGuitarReal6 = ConfigFile.read(ConfigGuitarReal6.class);
 		if (null == configGuitarReal6) {
 			configGuitarReal6 = new ConfigGuitarReal6();
-			configGuitarReal6.writeToFile();
+			ConfigFile.write(configGuitarReal6);
 		}
 
-		ConfigBassReal4 configBassReal4 = Config.readFromFile(ConfigBassReal4.class);
+		ConfigBassReal4 configBassReal4 = ConfigFile.read(ConfigBassReal4.class);
 		if (null == configBassReal4) {
 			configBassReal4 = new ConfigBassReal4();
-			configBassReal4.writeToFile();
+			ConfigFile.write(configBassReal4);
 		}
 
-		ConfigBassReal5 configBassReal5 = Config.readFromFile(ConfigBassReal5.class);
+		ConfigBassReal5 configBassReal5 = ConfigFile.read(ConfigBassReal5.class);
 		if (null == configBassReal5) {
 			configBassReal5 = new ConfigBassReal5();
-			configBassReal5.writeToFile();
+			ConfigFile.write(configBassReal5);
 		}
 
-		ConfigBassReal6 configBassReal6 = Config.readFromFile(ConfigBassReal6.class);
+		ConfigBassReal6 configBassReal6 = ConfigFile.read(ConfigBassReal6.class);
 		if (null == configBassReal6) {
 			configBassReal6 = new ConfigBassReal6();
-			configBassReal6.writeToFile();
+			ConfigFile.write(configBassReal6);
 		}
 
-		ConfigDrums configDrums = Config.readFromFile(ConfigDrums.class);
+		ConfigDrums configDrums = ConfigFile.read(ConfigDrums.class);
 		if (null == configDrums) {
 			configDrums = new ConfigDrums();
-			configDrums.writeToFile();
+			ConfigFile.write(configDrums);
 		}
 	}
 }
