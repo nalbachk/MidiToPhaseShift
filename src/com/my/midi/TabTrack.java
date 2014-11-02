@@ -11,11 +11,17 @@ import org.apache.logging.log4j.Logger;
 public class TabTrack {
 	private static Logger LOG = LogManager.getLogger(TabTrack.class);
 
+	private String trackContent = null;
+
 	private Integer linesCount = 0;
 
 	private List<TabPosition> positions = null;
 
 	public TabTrack(String trackContent) {
+		this.trackContent = trackContent;
+	}
+
+	public void init() {
 		int pos = 0;
 
 		// remove crap before beginning

@@ -1,5 +1,8 @@
 package com.my.converter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiEvent;
 import javax.sound.midi.MidiMessage;
@@ -58,27 +61,53 @@ public class TrackConverterDrums extends TrackConverter {
 
 	@Override
 	protected void modifyTrackNotes(Track midiTrack, TabTrack tabTrack) {
-		try {
-			for (int index = 0; index < midiTrack.size(); index++) {
-				MidiEvent midiEvent = midiTrack.get(index);
-				MidiMessage midiMessage = midiEvent.getMessage();
+		List<MidiEvent> eventsToAdd = new ArrayList<MidiEvent>();
 
-				if (midiMessage instanceof ShortMessage) {
-					ShortMessage shortMessage = (ShortMessage) midiMessage;
+		int midiTrackSize = midiTrack.size();
+		for (int index = 0; index < midiTrackSize; index++) {
+			MidiEvent midiEvent = midiTrack.get(index);
+			MidiMessage midiMessage = midiEvent.getMessage();
 
-					switch (shortMessage.getCommand()) {
-						case ShortMessage.NOTE_ON:
-						case ShortMessage.NOTE_OFF:
-							Integer noteMidi = shortMessage.getData1();
-							NoteEof noteEof = config.getNoteEof(noteMidi);
-							Integer data1 = getData1(noteEof);
-							Integer data2 = shortMessage.getData2();
+			if (midiMessage instanceof ShortMessage) {
+				ShortMessage shortMessage = (ShortMessage) midiMessage;
 
-							shortMessage.setMessage(shortMessage.getStatus(), data1, data2);
-							break;
-					}
+				switch (shortMessage.getCommand()) {
+					case ShortMessage.NOTE_ON:
+					case ShortMessage.NOTE_OFF:
+						Integer noteMidi = shortMessage.getData1();
+						NoteEof noteEof = config.getNoteEof(noteMidi);
+						this.modifyTrackNote(midiEvent, noteEof);
+
+						// add additional message for non cymbals
+						if (shortMessage.getData1() > 109) {
+							try {
+								int data1 = shortMessage.getData1() - 12;
+								ShortMessage shortMessageAdd;
+								shortMessageAdd = new ShortMessage(shortMessage.getCommand(), shortMessage.getChannel(), shortMessage.getData1(), shortMessage.getData2());
+								shortMessageAdd.setMessage(shortMessage.getStatus(), data1, shortMessage.getData2());
+								MidiEvent midiEventAdd = new MidiEvent(shortMessageAdd, midiEvent.getTick());
+								eventsToAdd.add(midiEventAdd);
+							} catch (InvalidMidiDataException e) {
+								e.printStackTrace();
+							}
+						}
+						break;
 				}
 			}
+		}
+
+		for (MidiEvent midiEvent : eventsToAdd) {
+			midiTrack.add(midiEvent);
+		}
+	}
+
+	public void modifyTrackNote(MidiEvent midiEvent, NoteEof noteEof) {
+		ShortMessage shortMessage = (ShortMessage) midiEvent.getMessage();
+		Integer data1 = getData1(noteEof);
+		Integer data2 = shortMessage.getData2();
+
+		try {
+			shortMessage.setMessage(shortMessage.getStatus(), data1, data2);
 		} catch (InvalidMidiDataException e) {
 			LOG.error("cannot modify trackNotes");
 		}

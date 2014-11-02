@@ -46,11 +46,32 @@ public abstract class TrackConverterStringsReal extends TrackConverter {
 						case ShortMessage.NOTE_OFF:
 							Integer noteMidi = shortMessage.getData1();
 							NotePhaseShift notePhaseShift = config.getNotePhaseShift(noteMidi);
+							NotePhaseShift notePhaseShiftFromTab = null;
 
 							// try to find same note on other line from tab file
 							if (null != tabTrack) {
 								TabPosition tabPosition = tabTrack.getPositions().get(tabPositionIndex);
-								notePhaseShift = getNotePhaseShiftFromTab(tabPosition, notePhaseShift);
+								notePhaseShiftFromTab = getNotePhaseShiftFromTab(tabPosition, notePhaseShift);
+
+								// if not found in tab -> workaround -> try the next position
+								if (null == notePhaseShiftFromTab) {
+									int tabPositionIndexOrg = tabPositionIndex;
+									do {
+										if (tabPositionIndex++ > tabTrack.getPositions().size()) {
+											LOG.error("tab track is wrong! please fix the .txt file! position: {}", tabPositionIndexOrg);
+											break;
+										}
+										LOG.warn("tab track is wrong (long notes are often repeated in tab files)! try next position: {}", tabPositionIndex);
+
+										tabPosition = tabTrack.getPositions().get(tabPositionIndex);
+										notePhaseShiftFromTab = getNotePhaseShiftFromTab(tabPosition, notePhaseShift);
+									} while (null == notePhaseShiftFromTab);
+								}
+
+								// take note from tab
+								if (null != notePhaseShiftFromTab) {
+									notePhaseShift = notePhaseShiftFromTab;
+								}
 							}
 
 							NoteEof noteEof = config.getNoteEof(notePhaseShift);
@@ -84,6 +105,8 @@ public abstract class TrackConverterStringsReal extends TrackConverter {
 				}
 			}
 		}
-		return notePhaseShift;
+
+		// no tab note found
+		return null;
 	}
 }

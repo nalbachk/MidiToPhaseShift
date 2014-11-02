@@ -26,6 +26,9 @@ public abstract class TrackConverter {
 	}
 
 	public void convert(Track trackMeta, Track midiTrack, TabTrack tabTrack) {
+		if (null != tabTrack) {
+			tabTrack.init();
+		}
 		this.modifyTrackName(midiTrack);
 		this.modifyTrackNotes(midiTrack, tabTrack);
 	}

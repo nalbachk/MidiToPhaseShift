@@ -188,6 +188,7 @@ public class MidiConverter {
 			case DRUMS:
 				config = ConfigFile.read(this.filePath, ConfigDrums.class); // first try subdirectory
 				trackConverter = new TrackConverterDrums(config);
+				tabTrack = null;
 				break;
 			default:
 				break;
