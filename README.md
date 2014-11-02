@@ -53,7 +53,7 @@ HowToUse:
 12. now you have to change the bpm
     - click on the bpm number, "Beat", "BPM Change" and use "Adjust Notes"
     - play the song on slower speed to check it
-12. thats it - save and copy the folder to PhaseShift
+13. thats it - save and copy the folder to PhaseShift
 
 Problems:
 - see "logs" folder
