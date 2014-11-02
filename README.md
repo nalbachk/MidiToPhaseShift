@@ -35,15 +35,16 @@ Features:
 - config-files to change tuning (useful for guitar/bass)
 
 HowToUse:
+
 1. download "MidiToPhaseShift.jar" and "midi" folder
 2. create or download a midi-file (see links)
 3. create or download a .txt tab-file (if you want to create guitar/bass part)(see links)
 4. copy the downloaded files in the "midi" folder
 5. rename it in the format (examples see "midi" folder):
-    - "Artist - Title - 1=GUITAR_REAL_6,2=BASS_REAL_4,3=DRUMS.mid"
-    - "Artist - Title - 3=DRUMS.mid" 
-    - "2=BASS_REAL_4" means that the second track should be converted to the real bass with 4 strings
-    - in webtabplayer for example you can see the tracks and count the number
+  - "Artist - Title - 1=GUITAR_REAL_6,2=BASS_REAL_4,3=DRUMS.mid"
+  - "Artist - Title - 3=DRUMS.mid" 
+  - "2=BASS_REAL_4" means that the second track should be converted to the real bass with 4 strings
+  - in webtabplayer for example you can see the tracks and count the number
 6. start (double click) MidiToPhaseShift.jar
 7. now the midi folder contains sub-folders with converted midi.mid files
 8. (optional) you can put config files in the sub-folder and change the mapping for example and repeat 5.
@@ -51,8 +52,8 @@ HowToUse:
 10. open EOF and import the midi.mid file and the .ogg file
 11. move the first fret to the beginning of the song (sync)
 12. now you have to change the bpm
-    - click on the bpm number, "Beat", "BPM Change" and use "Adjust Notes"
-    - play the song on slower speed to check it
+  - click on the bpm number, "Beat", "BPM Change" and use "Adjust Notes"
+  - play the song on slower speed to check it
 13. thats it - save and copy the folder to PhaseShift
 
 Problems:
