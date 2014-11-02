@@ -1,0 +1,1386 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configBassReal4>
+    <bpmMultiplier>0.92</bpmMultiplier>
+    <tuning>-2</tuning>
+    <mapMidiToPhaseShift>
+        <entry>
+            <key>28</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-0</comment>
+                <fret>0</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>29</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-1</comment>
+                <fret>1</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>30</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-2</comment>
+                <fret>2</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>31</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-3</comment>
+                <fret>3</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>32</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-4</comment>
+                <fret>4</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>33</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-0</comment>
+                <fret>0</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>34</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-1</comment>
+                <fret>1</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>35</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-2</comment>
+                <fret>2</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>36</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-3</comment>
+                <fret>3</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>37</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-4</comment>
+                <fret>4</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>38</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-0</comment>
+                <fret>0</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>39</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-1</comment>
+                <fret>1</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>40</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-2</comment>
+                <fret>2</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>41</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-3</comment>
+                <fret>3</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>42</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-4</comment>
+                <fret>4</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>43</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-0</comment>
+                <fret>0</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>44</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-1</comment>
+                <fret>1</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>45</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-2</comment>
+                <fret>2</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>46</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-3</comment>
+                <fret>3</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>47</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-4</comment>
+                <fret>4</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>48</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-5</comment>
+                <fret>5</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>49</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-6</comment>
+                <fret>6</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>50</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-7</comment>
+                <fret>7</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>51</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-8</comment>
+                <fret>8</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>52</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-9</comment>
+                <fret>9</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>53</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-10</comment>
+                <fret>10</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>54</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-11</comment>
+                <fret>11</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>55</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-12</comment>
+                <fret>12</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>56</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-13</comment>
+                <fret>13</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>57</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-14</comment>
+                <fret>14</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>58</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-15</comment>
+                <fret>15</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>59</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-16</comment>
+                <fret>16</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>60</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-17</comment>
+                <fret>17</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>61</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-18</comment>
+                <fret>18</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>62</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-19</comment>
+                <fret>19</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>63</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-20</comment>
+                <fret>20</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>64</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-21</comment>
+                <fret>21</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>65</key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 4-22</comment>
+                <fret>22</fret>
+                <lineNr>4</lineNr>
+            </value>
+        </entry>
+    </mapMidiToPhaseShift>
+    <mapPhaseShiftToEof>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-0</comment>
+                <fret>0</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-0</comment>
+                <cymbal>false</cymbal>
+                <fret>0</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-1</comment>
+                <fret>1</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-1</comment>
+                <cymbal>false</cymbal>
+                <fret>1</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-2</comment>
+                <fret>2</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-2</comment>
+                <cymbal>false</cymbal>
+                <fret>2</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-3</comment>
+                <fret>3</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-3</comment>
+                <cymbal>false</cymbal>
+                <fret>3</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-4</comment>
+                <fret>4</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-4</comment>
+                <cymbal>false</cymbal>
+                <fret>4</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-5</comment>
+                <fret>5</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-5</comment>
+                <cymbal>false</cymbal>
+                <fret>5</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-6</comment>
+                <fret>6</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-6</comment>
+                <cymbal>false</cymbal>
+                <fret>6</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-7</comment>
+                <fret>7</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-7</comment>
+                <cymbal>false</cymbal>
+                <fret>7</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-8</comment>
+                <fret>8</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-8</comment>
+                <cymbal>false</cymbal>
+                <fret>8</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-9</comment>
+                <fret>9</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-9</comment>
+                <cymbal>false</cymbal>
+                <fret>9</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-10</comment>
+                <fret>10</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-10</comment>
+                <cymbal>false</cymbal>
+                <fret>10</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-11</comment>
+                <fret>11</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-11</comment>
+                <cymbal>false</cymbal>
+                <fret>11</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-12</comment>
+                <fret>12</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-12</comment>
+                <cymbal>false</cymbal>
+                <fret>12</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-13</comment>
+                <fret>13</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-13</comment>
+                <cymbal>false</cymbal>
+                <fret>13</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-14</comment>
+                <fret>14</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-14</comment>
+                <cymbal>false</cymbal>
+                <fret>14</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-15</comment>
+                <fret>15</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-15</comment>
+                <cymbal>false</cymbal>
+                <fret>15</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-16</comment>
+                <fret>16</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-16</comment>
+                <cymbal>false</cymbal>
+                <fret>16</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-17</comment>
+                <fret>17</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-17</comment>
+                <cymbal>false</cymbal>
+                <fret>17</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-18</comment>
+                <fret>18</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-18</comment>
+                <cymbal>false</cymbal>
+                <fret>18</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-19</comment>
+                <fret>19</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-19</comment>
+                <cymbal>false</cymbal>
+                <fret>19</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-20</comment>
+                <fret>20</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-20</comment>
+                <cymbal>false</cymbal>
+                <fret>20</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-21</comment>
+                <fret>21</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-21</comment>
+                <cymbal>false</cymbal>
+                <fret>21</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 1-22</comment>
+                <fret>22</fret>
+                <lineNr>1</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 1-22</comment>
+                <cymbal>false</cymbal>
+                <fret>22</fret>
+                <lineNr>1</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-0</comment>
+                <fret>0</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-0</comment>
+                <cymbal>false</cymbal>
+                <fret>0</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-1</comment>
+                <fret>1</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-1</comment>
+                <cymbal>false</cymbal>
+                <fret>1</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-2</comment>
+                <fret>2</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-2</comment>
+                <cymbal>false</cymbal>
+                <fret>2</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-3</comment>
+                <fret>3</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-3</comment>
+                <cymbal>false</cymbal>
+                <fret>3</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-4</comment>
+                <fret>4</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-4</comment>
+                <cymbal>false</cymbal>
+                <fret>4</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-5</comment>
+                <fret>5</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-5</comment>
+                <cymbal>false</cymbal>
+                <fret>5</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-6</comment>
+                <fret>6</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-6</comment>
+                <cymbal>false</cymbal>
+                <fret>6</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-7</comment>
+                <fret>7</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-7</comment>
+                <cymbal>false</cymbal>
+                <fret>7</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-8</comment>
+                <fret>8</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-8</comment>
+                <cymbal>false</cymbal>
+                <fret>8</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-9</comment>
+                <fret>9</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-9</comment>
+                <cymbal>false</cymbal>
+                <fret>9</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-10</comment>
+                <fret>10</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-10</comment>
+                <cymbal>false</cymbal>
+                <fret>10</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-11</comment>
+                <fret>11</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-11</comment>
+                <cymbal>false</cymbal>
+                <fret>11</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-12</comment>
+                <fret>12</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-12</comment>
+                <cymbal>false</cymbal>
+                <fret>12</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-13</comment>
+                <fret>13</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-13</comment>
+                <cymbal>false</cymbal>
+                <fret>13</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-14</comment>
+                <fret>14</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-14</comment>
+                <cymbal>false</cymbal>
+                <fret>14</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-15</comment>
+                <fret>15</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-15</comment>
+                <cymbal>false</cymbal>
+                <fret>15</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-16</comment>
+                <fret>16</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-16</comment>
+                <cymbal>false</cymbal>
+                <fret>16</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-17</comment>
+                <fret>17</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-17</comment>
+                <cymbal>false</cymbal>
+                <fret>17</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-18</comment>
+                <fret>18</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-18</comment>
+                <cymbal>false</cymbal>
+                <fret>18</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-19</comment>
+                <fret>19</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-19</comment>
+                <cymbal>false</cymbal>
+                <fret>19</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-20</comment>
+                <fret>20</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-20</comment>
+                <cymbal>false</cymbal>
+                <fret>20</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-21</comment>
+                <fret>21</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-21</comment>
+                <cymbal>false</cymbal>
+                <fret>21</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 2-22</comment>
+                <fret>22</fret>
+                <lineNr>2</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 2-22</comment>
+                <cymbal>false</cymbal>
+                <fret>22</fret>
+                <lineNr>2</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-0</comment>
+                <fret>0</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-0</comment>
+                <cymbal>false</cymbal>
+                <fret>0</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-1</comment>
+                <fret>1</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-1</comment>
+                <cymbal>false</cymbal>
+                <fret>1</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-2</comment>
+                <fret>2</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-2</comment>
+                <cymbal>false</cymbal>
+                <fret>2</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-3</comment>
+                <fret>3</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-3</comment>
+                <cymbal>false</cymbal>
+                <fret>3</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-4</comment>
+                <fret>4</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-4</comment>
+                <cymbal>false</cymbal>
+                <fret>4</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-5</comment>
+                <fret>5</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-5</comment>
+                <cymbal>false</cymbal>
+                <fret>5</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-6</comment>
+                <fret>6</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-6</comment>
+                <cymbal>false</cymbal>
+                <fret>6</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-7</comment>
+                <fret>7</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-7</comment>
+                <cymbal>false</cymbal>
+                <fret>7</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-8</comment>
+                <fret>8</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-8</comment>
+                <cymbal>false</cymbal>
+                <fret>8</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-9</comment>
+                <fret>9</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-9</comment>
+                <cymbal>false</cymbal>
+                <fret>9</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-10</comment>
+                <fret>10</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-10</comment>
+                <cymbal>false</cymbal>
+                <fret>10</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-11</comment>
+                <fret>11</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-11</comment>
+                <cymbal>false</cymbal>
+                <fret>11</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-12</comment>
+                <fret>12</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-12</comment>
+                <cymbal>false</cymbal>
+                <fret>12</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-13</comment>
+                <fret>13</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-13</comment>
+                <cymbal>false</cymbal>
+                <fret>13</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-14</comment>
+                <fret>14</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-14</comment>
+                <cymbal>false</cymbal>
+                <fret>14</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-15</comment>
+                <fret>15</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-15</comment>
+                <cymbal>false</cymbal>
+                <fret>15</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-16</comment>
+                <fret>16</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-16</comment>
+                <cymbal>false</cymbal>
+                <fret>16</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-17</comment>
+                <fret>17</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-17</comment>
+                <cymbal>false</cymbal>
+                <fret>17</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-18</comment>
+                <fret>18</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-18</comment>
+                <cymbal>false</cymbal>
+                <fret>18</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-19</comment>
+                <fret>19</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-19</comment>
+                <cymbal>false</cymbal>
+                <fret>19</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-20</comment>
+                <fret>20</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-20</comment>
+                <cymbal>false</cymbal>
+                <fret>20</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-21</comment>
+                <fret>21</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-21</comment>
+                <cymbal>false</cymbal>
+                <fret>21</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                <closed>false</closed>
+                <comment>LINE 3-22</comment>
+                <fret>22</fret>
+                <lineNr>3</lineNr>
+            </key>
+            <value>
+                <closed>false</closed>
+                <comment>LINE 3-22</comment>
+                <cymbal>false</cymbal>
+                <fret>22</fret>
+                <lineNr>3</lineNr>
+            </value>
+        </entry>
+    </mapPhaseShiftToEof>
+</configBassReal4>
