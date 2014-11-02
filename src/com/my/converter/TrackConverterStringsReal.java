@@ -9,7 +9,7 @@ import javax.sound.midi.Track;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.my.config.ConfigStrings;
+import com.my.config.Config;
 import com.my.config.NoteEof;
 import com.my.config.NotePhaseShift;
 import com.my.midi.TabPosition;
@@ -18,10 +18,8 @@ import com.my.midi.TabTrack;
 public abstract class TrackConverterStringsReal extends TrackConverter {
 	private static Logger LOG = LogManager.getLogger(TrackConverterStringsReal.class);
 
-	protected ConfigStrings configStrings = null;
-
-	public TrackConverterStringsReal(ConfigStrings configStrings) {
-		this.configStrings = configStrings;
+	public TrackConverterStringsReal(Config config) {
+		super(config);
 	}
 
 	@Override
@@ -47,7 +45,7 @@ public abstract class TrackConverterStringsReal extends TrackConverter {
 							// break;
 						case ShortMessage.NOTE_OFF:
 							Integer noteMidi = shortMessage.getData1();
-							NotePhaseShift notePhaseShift = configStrings.getNotePhaseShift(noteMidi);
+							NotePhaseShift notePhaseShift = config.getNotePhaseShift(noteMidi);
 
 							// try to find same note on other line from tab file
 							if (null != tabTrack) {
@@ -55,7 +53,7 @@ public abstract class TrackConverterStringsReal extends TrackConverter {
 								notePhaseShift = getNotePhaseShiftFromTab(tabPosition, notePhaseShift);
 							}
 
-							NoteEof noteEof = configStrings.getNoteEof(notePhaseShift);
+							NoteEof noteEof = config.getNoteEof(notePhaseShift);
 							Integer data1 = getData1(noteEof);
 							Integer data2 = getData2(noteEof);
 							shortMessage.setMessage(shortMessage.getStatus(), data1, data2);
@@ -77,10 +75,10 @@ public abstract class TrackConverterStringsReal extends TrackConverter {
 	}
 
 	protected NotePhaseShift getNotePhaseShiftFromTab(TabPosition tabPosition, NotePhaseShift notePhaseShift) {
-		Integer midiNoteFromMapping = configStrings.getNoteMidi(notePhaseShift);
+		Integer midiNoteFromMapping = config.getNoteMidi(notePhaseShift);
 		for (NotePhaseShift fromTab : tabPosition.getNotes()) {
 			if (null != fromTab) {
-				Integer midiNoteFromTab = configStrings.getNoteMidi(fromTab);
+				Integer midiNoteFromTab = config.getNoteMidi(fromTab);
 				if (midiNoteFromTab == midiNoteFromMapping) { // midi note value is the same
 					return fromTab;
 				}

@@ -29,10 +29,10 @@ public class ConfigFile {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static <T> T read(Class<? extends Config> clazz) {
+	public static <T> T read(String filePath, Class<? extends Config> clazz) {
 		T t = null;
 		String fileName = clazz.getSimpleName() + ".xml";
-		File file = new File(fileName);
+		File file = new File(filePath + fileName);
 		if (file.exists()) {
 			try {
 				JAXBContext jaxb = JAXBContext.newInstance(clazz);
@@ -41,6 +41,9 @@ public class ConfigFile {
 			} catch (Exception e) {
 				LOG.error("cannot read config {}", file.getAbsolutePath(), e);
 			}
+		} else if (filePath.length() > 0) {
+			// try again without path
+			return read("", clazz);
 		}
 		return t;
 	}

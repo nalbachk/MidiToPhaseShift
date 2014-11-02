@@ -3,13 +3,13 @@ package com.my.converter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.my.config.ConfigStrings;
+import com.my.config.Config;
 
 public class TrackConverterBassReal extends TrackConverterStringsReal {
 	private static Logger LOG = LogManager.getLogger(TrackConverterBassReal.class);
 
-	public TrackConverterBassReal(ConfigStrings configStrings) {
-		super(configStrings);
+	public TrackConverterBassReal(Config config) {
+		super(config);
 	}
 
 	@Override

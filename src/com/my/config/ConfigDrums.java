@@ -83,4 +83,11 @@ public class ConfigDrums extends Config implements Serializable {
 
 		LOG.info("mapPhaseShiftToEof initialized");
 	}
+
+	@Override
+	public Integer getNoteMidi(NotePhaseShift notePhaseShift) {
+		Integer noteMidi = 23 + notePhaseShift.getLineNr();
+		//TODO
+		return noteMidi;
+	}
 }

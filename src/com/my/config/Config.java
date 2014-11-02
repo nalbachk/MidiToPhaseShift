@@ -74,6 +74,8 @@ public abstract class Config {
 		return new NoteEof(1, 5);
 	}
 
+	abstract public Integer getNoteMidi(NotePhaseShift notePhaseShift);
+
 	public Double getBpmMultiplier() {
 		return bpmMultiplier;
 	}

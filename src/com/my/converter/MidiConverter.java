@@ -17,12 +17,13 @@ import javax.sound.midi.Track;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.my.config.Config;
 import com.my.config.ConfigBassReal4;
 import com.my.config.ConfigBassReal5;
 import com.my.config.ConfigBassReal6;
+import com.my.config.ConfigDrums;
 import com.my.config.ConfigFile;
 import com.my.config.ConfigGuitarReal6;
-import com.my.config.ConfigStrings;
 import com.my.main.Song;
 import com.my.midi.MidiFile;
 import com.my.midi.MidiLogger;
@@ -34,7 +35,11 @@ import com.my.print.Highway;
 public class MidiConverter {
 	private static Logger LOG = LogManager.getLogger(MidiConverter.class);
 
-	protected Track trackMeta = null;
+	protected String filePath = "";
+
+	protected Track metaTrack = null;
+
+	protected Boolean bpmReplaced = false;
 
 	public void convertFiles() {
 		File directory = new File("midi");
@@ -73,6 +78,13 @@ public class MidiConverter {
 				tabFile = new TabFile(fileTab);
 			}
 
+			// create sub directory
+			String strPath = midiFile.getFilePath();
+			strPath += midiFile.getSongArtist() + " - " + midiFile.getSongTitle() + System.getProperty("file.separator");
+			File path = new File(strPath);
+			path.mkdirs();
+			this.filePath = strPath;
+
 			this.modifyMidi(midiFile, tabFile);
 			this.writeMidiNew(midiFile);
 		} catch (InvalidMidiDataException | IOException e) {
@@ -81,14 +93,8 @@ public class MidiConverter {
 	}
 
 	protected void writeMidiNew(MidiFile midiFile) {
-		// create sub directory
-		String strPath = midiFile.getFilePath();
-		strPath += midiFile.getSongArtist() + " - " + midiFile.getSongTitle() + System.getProperty("file.separator");
-		File path = new File(strPath);
-		path.mkdirs();
-
 		// create new midi file
-		File fileMidiNew = new File(strPath + "midi.mid");
+		File fileMidiNew = new File(this.filePath + "midi.mid");
 		int fileType = MidiSystem.getMidiFileTypes(midiFile.getSequence())[0];
 		try {
 			MidiSystem.write(midiFile.getSequence(), fileType, fileMidiNew);
@@ -107,10 +113,10 @@ public class MidiConverter {
 		for (int trackIndex = 0; trackIndex < midiFile.getTracks().size(); trackIndex++) {
 			Track midiTrack = midiFile.getSequence().getTracks()[trackIndex];
 			if (trackIndex == 0) {
-				LOG.info("track with index {} is metaTrack and should stay", trackIndex);
+				LOG.info("track with index {} is metaTrack and will be modified", trackIndex);
 				MidiLogger.logTrack("metaTrack", midiTrack);
+				metaTrack = midiTrack;
 				continue;
-				//trackMeta = midiTrack;
 			}
 
 			if (trackIndices.contains(trackIndex)) {
@@ -126,7 +132,7 @@ public class MidiConverter {
 				this.modifyTrack(instrument, midiTrack, tabTrack);
 
 				// test
-				this.writeImage(midiFile, trackIndex);
+				// this.writeImage(midiFile, trackIndex);
 			} else {
 				LOG.info("track with index {} will be removed", trackIndex);
 				tracksToDelete.add(midiTrack);
@@ -159,35 +165,43 @@ public class MidiConverter {
 	protected void modifyTrack(Instruments instrument, Track midiTrack, TabTrack tabTrack) {
 		MidiLogger.logTrack("before", midiTrack);
 
-		ConfigStrings configStrings = null;
+		Config config = null;
 		TrackConverter trackConverter = null;
 
 		switch (instrument) {
 			case GUITAR_REAL_6:
-				configStrings = ConfigFile.read(ConfigGuitarReal6.class);
-				trackConverter = new TrackConverterGuitarReal(configStrings);
+				config = ConfigFile.read(this.filePath, ConfigGuitarReal6.class); // first try subdirectory
+				trackConverter = new TrackConverterGuitarReal(config);
 				break;
 			case BASS_REAL_4:
-				configStrings = ConfigFile.read(ConfigBassReal4.class);
-				trackConverter = new TrackConverterBassReal(configStrings);
+				config = ConfigFile.read(this.filePath, ConfigBassReal4.class); // first try subdirectory
+				trackConverter = new TrackConverterBassReal(config);
 				break;
 			case BASS_REAL_5:
-				configStrings = ConfigFile.read(ConfigBassReal5.class);
-				trackConverter = new TrackConverterBassReal(configStrings);
+				config = ConfigFile.read(this.filePath, ConfigBassReal5.class); // first try subdirectory
+				trackConverter = new TrackConverterBassReal(config);
 				break;
 			case BASS_REAL_6:
-				configStrings = ConfigFile.read(ConfigBassReal6.class);
-				trackConverter = new TrackConverterBassReal(configStrings);
+				config = ConfigFile.read(this.filePath, ConfigBassReal6.class); // first try subdirectory
+				trackConverter = new TrackConverterBassReal(config);
 				break;
 			case DRUMS:
-				trackConverter = new TrackConverterDrums();
+				config = ConfigFile.read(this.filePath, ConfigDrums.class); // first try subdirectory
+				trackConverter = new TrackConverterDrums(config);
 				break;
 			default:
 				break;
 		}
 
-		trackConverter.convert(trackMeta, midiTrack, tabTrack);
+		//		if (!bpmReplaced) {
+		//			if (null != metaTrack && null != config) {
+		//				TrackConverterMeta trackConverterMeta = new TrackConverterMeta(config);
+		//				trackConverterMeta.convert(metaTrack);
+		//			}
+		//			bpmReplaced = true;
+		//		}
 
+		trackConverter.convert(metaTrack, midiTrack, tabTrack);
 		MidiLogger.logTrack("after", midiTrack);
 	}
 }

@@ -1,4 +1,5 @@
 package com.my.print;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -6,9 +7,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+
 import com.my.main.Note;
 import com.my.main.Song;
-import com.my.mapper.MapperMidiToPhaseShift;
 import com.my.mapper.NotesPhaseShift;
 import com.my.phaseshift.Instruments;
 
@@ -43,10 +44,8 @@ public class Highway {
 		Graphics2D g = (Graphics2D) image.getGraphics();
 		g.setBackground(Color.BLACK);
 
-		MapperMidiToPhaseShift mapperMidiToPhaseShift = new MapperMidiToPhaseShift(Instruments.DRUMS);
-		
 		for (Note note : this.song.getNotes()) {
-			NotesPhaseShift notePhaseShift = mapperMidiToPhaseShift.getNote(note.getValue());
+			NotesPhaseShift notePhaseShift = null; //TODO mapperMidiToPhaseShift.getNote(note.getValue());
 			g.setColor(notePhaseShift.getColor());
 			int positionX1 = notePhaseShift.getLineNumber() * lineWidth;
 			int positionY1 = (int) (note.getStart().intValue() * scaleY);

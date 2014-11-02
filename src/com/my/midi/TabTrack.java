@@ -56,7 +56,17 @@ public class TabTrack {
 		List<StringBuilder> lines = new ArrayList<StringBuilder>();
 		List<String> linesTmp = Arrays.asList(trackRow.split(System.lineSeparator()));
 		for (int i = 0; i < linesTmp.size(); i++) { // DESC because later top-line has lineNr=6 and bottom-line has lineNr=1
-			lines.add(new StringBuilder(linesTmp.get(linesTmp.size() - 1 - i))); // convert
+			String line = linesTmp.get(linesTmp.size() - 1 - i);
+
+			// remove crap before beginning
+			pos = line.indexOf('|') + 1;
+			line = line.substring(pos);
+
+			// remove crap after end
+			pos = line.lastIndexOf('|');
+			line = line.substring(0, pos);
+
+			lines.add(new StringBuilder(line)); // convert
 		}
 
 		if (0 == this.linesCount) {
@@ -100,16 +110,6 @@ public class TabTrack {
 	}
 
 	protected List<Integer> readNotes(String line) {
-		int pos = 0;
-
-		// remove crap before beginning
-		pos = line.indexOf('|') + 1;
-		line = line.substring(pos);
-
-		// remove crap after end
-		pos = line.lastIndexOf('|');
-		line = line.substring(0, pos);
-
 		// remove "|" symbols
 		line = line.replaceAll("\\x7C", "");
 

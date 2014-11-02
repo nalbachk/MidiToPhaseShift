@@ -10,6 +10,8 @@ import javax.sound.midi.Track;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.my.converter.TrackConverter;
+
 /**
  * @author Administrator
  */
@@ -68,7 +70,7 @@ public class MidiLogger {
 	private static String toString(byte[] message) {
 		String str = "";
 		for (byte b : message) {
-			str += (int) b + ";";
+			str += TrackConverter.toUnsignedByte(b) + ";";
 		}
 		//return new String(message, Charset.forName("ASCII"));
 		return str;

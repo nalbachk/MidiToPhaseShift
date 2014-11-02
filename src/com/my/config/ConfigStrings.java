@@ -23,7 +23,7 @@ public abstract class ConfigStrings extends Config {
 	protected void initMapPhaseShiftToEof() {
 		mapPhaseShiftToEof = new TreeMap<NotePhaseShift, NoteEof>();
 
-		for (int lineNr = 1; lineNr < getStringsCount(); lineNr++) {
+		for (int lineNr = 1; lineNr <= getStringsCount(); lineNr++) {
 			for (int fret = 0; fret < getFretsCount(); fret++) {
 				mapPhaseShiftToEof.put(new NotePhaseShift(lineNr, fret), new NoteEof(lineNr, fret));
 			}
@@ -31,6 +31,4 @@ public abstract class ConfigStrings extends Config {
 
 		LOG.info("mapPhaseShiftToEof initialized");
 	}
-
-	abstract public Integer getNoteMidi(NotePhaseShift notePhaseShift);
 }
