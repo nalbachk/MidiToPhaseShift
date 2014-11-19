@@ -172,4 +172,12 @@ public class TabTrack {
 	public void setPositions(List<TabPosition> positions) {
 		this.positions = positions;
 	}
+
+	public TabPosition getPositionByIndex(int index) {
+		if (index >= getPositions().size()) {
+			LOG.error("tab track is wrong! please fix the .txt file! position: {}", index);
+			throw new IllegalArgumentException();
+		}
+		return this.getPositions().get(index);
+	}
 }

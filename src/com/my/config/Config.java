@@ -17,6 +17,9 @@ public abstract class Config {
 	private Double bpmMultiplier = 0.92D;
 
 	@XmlElement
+	private Integer midiEventPerStateMin = 25;
+
+	@XmlElement
 	private Integer tuning = 0;
 
 	@XmlElement
@@ -82,6 +85,14 @@ public abstract class Config {
 
 	public void setBpmMultiplier(Double bpmMultiplier) {
 		this.bpmMultiplier = bpmMultiplier;
+	}
+
+	public Integer getMidiEventsPerStateMin() {
+		return midiEventPerStateMin;
+	}
+
+	public void setMidiEventsPerStateMin(Integer midiEventPerStateMin) {
+		this.midiEventPerStateMin = midiEventPerStateMin;
 	}
 
 	public Integer getTuning() {

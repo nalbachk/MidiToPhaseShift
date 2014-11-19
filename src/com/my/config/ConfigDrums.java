@@ -49,20 +49,21 @@ public class ConfigDrums extends Config implements Serializable {
 		mapMidiToPhaseShift.put(48, new NotePhaseShift(3)); // tom 1
 		mapMidiToPhaseShift.put(50, new NotePhaseShift(3)); // tom 1
 
-		mapMidiToPhaseShift.put(49, new NotePhaseShift(4)); // cymbal 1
-		mapMidiToPhaseShift.put(51, new NotePhaseShift(4)); // cymbal 1
-		mapMidiToPhaseShift.put(52, new NotePhaseShift(4)); // cymbal 1
-		mapMidiToPhaseShift.put(53, new NotePhaseShift(4)); // cymbal 1
-		mapMidiToPhaseShift.put(55, new NotePhaseShift(4)); // cymbal 1
+		mapMidiToPhaseShift.put(49, new NotePhaseShift(4)); // cymbal 1 / crash cymbal 
+		mapMidiToPhaseShift.put(52, new NotePhaseShift(4)); // cymbal 1 / crash cymbal
+		mapMidiToPhaseShift.put(53, new NotePhaseShift(4)); // cymbal 1 / crash cymbal
+		mapMidiToPhaseShift.put(54, new NotePhaseShift(4)); // cymbal 1 / crash cymbal / tambourine
+		mapMidiToPhaseShift.put(55, new NotePhaseShift(4)); // cymbal 1 / crash cymbal / splash cymbal
 
-		mapMidiToPhaseShift.put(45, new NotePhaseShift(5)); // tom 2
 		mapMidiToPhaseShift.put(47, new NotePhaseShift(5)); // tom 2
 
-		mapMidiToPhaseShift.put(57, new NotePhaseShift(6)); // cymbal 2
-		mapMidiToPhaseShift.put(59, new NotePhaseShift(6)); // cymbal 2
+		mapMidiToPhaseShift.put(51, new NotePhaseShift(6)); // cymbal 2 / ride cymbal
+		mapMidiToPhaseShift.put(57, new NotePhaseShift(6)); // cymbal 2 / ride cymbal
+		mapMidiToPhaseShift.put(59, new NotePhaseShift(6)); // cymbal 2 / ride cymbal
 
-		mapMidiToPhaseShift.put(41, new NotePhaseShift(7)); // tom 3
-		mapMidiToPhaseShift.put(43, new NotePhaseShift(7)); // tom 3
+		mapMidiToPhaseShift.put(41, new NotePhaseShift(7)); // tom 3 / floor tom
+		mapMidiToPhaseShift.put(43, new NotePhaseShift(7)); // tom 3 / floor tom
+		mapMidiToPhaseShift.put(45, new NotePhaseShift(7)); // tom 2
 
 		LOG.info("mapMidiToPhaseShift initialized");
 	}
