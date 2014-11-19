@@ -11,7 +11,7 @@ Tool to create custom songs for PhaseShift:
 
 Todos:
 - bpm values from midi are not right (problem in eof?)
-- .txt file can have some format problems
+- .txt file can have some format problems (repeated parts are not included)
 - remove crazy useless stuff from midi-files (problems in eof) 
 
 PhaseShift:
@@ -33,6 +33,7 @@ Features:
 - supports additional .txt tab-files for real guitar/bass (to find note positions)
 - config-files to change mapping from midi notes to lines (useful for drums)
 - config-files to change tuning (useful for guitar/bass)
+- config-files to remove useless notes per midi-status (useful for guitar/bass)
 
 HowToUse:
 
