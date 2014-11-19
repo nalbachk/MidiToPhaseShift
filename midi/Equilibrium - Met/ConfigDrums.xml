@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configDrums>
     <bpmMultiplier>0.92</bpmMultiplier>
+	<midiEventPerStateMin>0</midiEventPerStateMin>
     <tuning>0</tuning>
     <mapMidiToPhaseShift>
         <entry>

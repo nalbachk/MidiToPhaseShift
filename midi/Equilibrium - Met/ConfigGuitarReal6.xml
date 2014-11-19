@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configGuitarReal6>
     <bpmMultiplier>0.92</bpmMultiplier>
+	<midiEventPerStateMin>0</midiEventPerStateMin>
     <tuning>-2</tuning>
     <mapMidiToPhaseShift>
         <entry>
